@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/wiki/src/global.css">
+  </head>
+  <body>
+    <div class="header-container">
+      <header>
+        <img class="logo" src="https://cdn.glitch.global/a6c20abe-1476-4051-bc83-4d651c08e489/Logo_of_Geometry_Dash.webp?v=1744032047255">
+        <label class="header-label header-name">Geometry Dash Wikipedia</label>
+        <a class="header-label" href="/wiki?Wiki-Main-Page">Main Page</a>
+        <a class="header-label" href="/wiki?Wiki-Suggestions">Suggest</a>
+      </header>
+    </div>
+    <div class="article-container">
+      <div id="article">
+        <p id="articletext">Article not found.</p> <a href="/wiki?Wiki-Suggestions">Suggest one?</a> 
+      </div>
+    </div>
+    <script>
+const pageMatch = window.location.href.match(/https?:\/\/.+\?(.+)/);
+if (pageMatch) {
+  const page = pageMatch[1];
+  if (page) {
+    document.getElementById("articletext").textContent = `Article "${page.replaceAll("-", " ")}" not found.`
+  }
+}
+    </script>
+  </body>
+</html>
