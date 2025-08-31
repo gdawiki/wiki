@@ -6,11 +6,11 @@ let page;
 
 function exit(context) {
   if (context === "NotFound") {
-    window.location.href = `/error/404?${page}`;
+    window.location.href = `/wiki/error/404?${page}`;
   } else if (context === "NoPage") {
-    window.location.href = "/error/404";
+    window.location.href = "/wiki/error/404";
   } else {
-    window.location.href = "/";
+    window.location.href = "/wiki";
   }
 }
 
@@ -20,7 +20,7 @@ page = pageMatch[1];
 if (!page) exit("NoPage");
 
 async function loadPage() {
-  const response = await fetch(`/content/${page}.md`);
+  const response = await fetch(`/wiki/content/${page}.md`);
   if (response.status === 404) return exit("NotFound");
   if (response.status !== 200) {
     console.log(response);
